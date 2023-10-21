@@ -2,13 +2,14 @@
   <PropertyGroup>
     <IsPackable>true</IsPackable>
     <PackageId>accounts</PackageId>
-    <Version>0.1.0</Version>
+    <Version>0.2.0</Version>
     <Authors>fsdf</Authors>
     <TargetFramework>net5.0</TargetFramework>
     <Nullable>enable</Nullable>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <NoWarn>1591</NoWarn>
+    <RepositoryUrl>https://github.com/speakeasy-sdks/nordtest</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>

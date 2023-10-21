@@ -14,11 +14,11 @@ var sdk = new AccountsSDK(
 );
 
 var res = await sdk.CustomerAccounts.AccountDetailsUsingGETAsync(new AccountDetailsUsingGETRequest() {
-    Signature = "illo",
-    XIBMClientId = "Diesel",
-    XIBMClientSecret = "Savings foreground down",
-    XNordeaOriginatingDate = "female Westland",
-    XNordeaOriginatingHost = "Program Lamborghini auxiliary",
+    Signature = "string",
+    XIBMClientId = "string",
+    XIBMClientSecret = "string",
+    XNordeaOriginatingDate = "string",
+    XNordeaOriginatingHost = "string",
     Id = "<ID>",
 });
 

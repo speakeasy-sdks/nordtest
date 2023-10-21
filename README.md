@@ -7,9 +7,9 @@
 </div>
 
 <!-- Start SDK Installation -->
-# SDK Installation
+## SDK Installation
 
-## Nuget
+### Nuget
 
 ```bash
 dotnet add package accounts
@@ -18,8 +18,6 @@ dotnet add package accounts
 
 ## SDK Example Usage
 <!-- Start SDK Example Usage -->
-
-
 ```csharp
 using Accounts;
 using Accounts.Models.Shared;
@@ -33,11 +31,11 @@ var sdk = new AccountsSDK(
 );
 
 var res = await sdk.CustomerAccounts.AccountDetailsUsingGETAsync(new AccountDetailsUsingGETRequest() {
-    Signature = "illo",
-    XIBMClientId = "Diesel",
-    XIBMClientSecret = "Savings foreground down",
-    XNordeaOriginatingDate = "female Westland",
-    XNordeaOriginatingHost = "Program Lamborghini auxiliary",
+    Signature = "string",
+    XIBMClientId = "string",
+    XIBMClientSecret = "string",
+    XNordeaOriginatingDate = "string",
+    XNordeaOriginatingHost = "string",
     Id = "<ID>",
 });
 
@@ -46,10 +44,10 @@ var res = await sdk.CustomerAccounts.AccountDetailsUsingGETAsync(new AccountDeta
 <!-- End SDK Example Usage -->
 
 <!-- Start SDK Available Operations -->
-# Available Resources and Operations
+## Available Resources and Operations
 
 
-## [CustomerAccounts](docs/sdks/customeraccounts/README.md)
+### [CustomerAccounts](docs/sdks/customeraccounts/README.md)
 
 * [AccountDetailsUsingGET](docs/sdks/customeraccounts/README.md#accountdetailsusingget) - Get account details by account id
 * [AccountListUsingGET](docs/sdks/customeraccounts/README.md#accountlistusingget) - Get list of accounts
@@ -59,8 +57,6 @@ var res = await sdk.CustomerAccounts.AccountDetailsUsingGETAsync(new AccountDeta
 <!-- End SDK Available Operations -->
 
 <!-- Start Dev Containers -->
-
-
 
 <!-- End Dev Containers -->
 

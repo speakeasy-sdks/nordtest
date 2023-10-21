@@ -32,11 +32,11 @@ var sdk = new AccountsSDK(
 );
 
 var res = await sdk.CustomerAccounts.AccountDetailsUsingGETAsync(new AccountDetailsUsingGETRequest() {
-    Signature = "illo",
-    XIBMClientId = "Diesel",
-    XIBMClientSecret = "Savings foreground down",
-    XNordeaOriginatingDate = "female Westland",
-    XNordeaOriginatingHost = "Program Lamborghini auxiliary",
+    Signature = "string",
+    XIBMClientId = "string",
+    XIBMClientSecret = "string",
+    XNordeaOriginatingDate = "string",
+    XNordeaOriginatingHost = "string",
     Id = "<ID>",
 });
 
@@ -74,11 +74,11 @@ var sdk = new AccountsSDK(
 );
 
 var res = await sdk.CustomerAccounts.AccountListUsingGETAsync(new AccountListUsingGETRequest() {
-    Signature = "tesla",
-    XIBMClientId = "recklessly deposit",
-    XIBMClientSecret = "et",
-    XNordeaOriginatingDate = "payment CSS Electronic",
-    XNordeaOriginatingHost = "copy Passenger success",
+    Signature = "string",
+    XIBMClientId = "string",
+    XIBMClientSecret = "string",
+    XNordeaOriginatingDate = "string",
+    XNordeaOriginatingHost = "string",
 });
 
 // handle response
@@ -115,11 +115,11 @@ var sdk = new AccountsSDK(
 );
 
 var res = await sdk.CustomerAccounts.ConvertV4AccountIdToV5UsingGETAsync(new ConvertV4AccountIdToV5UsingGETRequest() {
-    Signature = "West red Bhutan",
-    XIBMClientId = "SQL",
-    XIBMClientSecret = "HTTP",
-    XNordeaOriginatingDate = "Implementation Northeast Creative",
-    XNordeaOriginatingHost = "Legacy Nissan",
+    Signature = "string",
+    XIBMClientId = "string",
+    XIBMClientSecret = "string",
+    XNordeaOriginatingDate = "string",
+    XNordeaOriginatingHost = "string",
     Id = "<ID>",
 });
 
@@ -157,11 +157,11 @@ var sdk = new AccountsSDK(
 );
 
 var res = await sdk.CustomerAccounts.ConvertV5AccountIdToV4UsingGETAsync(new ConvertV5AccountIdToV4UsingGETRequest() {
-    Signature = "West",
-    XIBMClientId = "calculate gold",
-    XIBMClientSecret = "Salad",
-    XNordeaOriginatingDate = "quarrelsomely Bacon",
-    XNordeaOriginatingHost = "Illinois",
+    Signature = "string",
+    XIBMClientId = "string",
+    XIBMClientSecret = "string",
+    XNordeaOriginatingDate = "string",
+    XNordeaOriginatingHost = "string",
     Id = "<ID>",
 });
 
@@ -200,11 +200,11 @@ var sdk = new AccountsSDK(
 );
 
 var res = await sdk.CustomerAccounts.TransactionListUsingGETAsync(new TransactionListUsingGETRequest() {
-    Signature = "SSL misquote",
-    XIBMClientId = "Branding Northwest Pataca",
-    XIBMClientSecret = "Hafnium hybrid TLS",
-    XNordeaOriginatingDate = "East Manager",
-    XNordeaOriginatingHost = "Northwest transmitter living",
+    Signature = "string",
+    XIBMClientId = "string",
+    XIBMClientSecret = "string",
+    XNordeaOriginatingDate = "string",
+    XNordeaOriginatingHost = "string",
     Id = "<ID>",
 });
 

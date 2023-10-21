@@ -2,24 +2,27 @@ configVersion: 1.0.0
 management:
   docChecksum: 8f103990e3594ae85022ff254c8b817a
   docVersion: "5.0"
-  speakeasyVersion: 1.98.1
-  generationVersion: 2.152.1
+  speakeasyVersion: 1.104.0
+  generationVersion: 2.169.0
 generation:
   comments:
     disableComments: false
     omitDescriptionIfSummaryPresent: false
   baseServerURL: ""
+  repoURL: https://github.com/speakeasy-sdks/nordtest.git
   sdkClassName: accounts
   singleTagPerOp: false
   tagNamespacingDisabled: false
 features:
   csharp:
-    core: 2.89.4
+    core: 2.93.0
     globalSecurity: 2.81.1
     globalServerURLs: 2.82.0
 csharp:
-  version: 0.1.0
+  version: 0.2.0
   author: fsdf
   dotnetVersion: net5.0
   maxMethodParams: 0
   packageName: accounts
+  published: true
+  repoSubDirectory: .
