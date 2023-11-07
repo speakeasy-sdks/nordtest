@@ -23,7 +23,7 @@ using Accounts;
 using Accounts.Models.Shared;
 using Accounts.Models.Operations;
 
-var sdk = new AccountsSDK(
+var sdk = new Accounts(
     security: new Security() {
         DecoupledAuth = "",
         OAuth2 = "",
@@ -47,7 +47,7 @@ var res = await sdk.CustomerAccounts.AccountDetailsUsingGETAsync(new AccountDeta
 ## Available Resources and Operations
 
 
-### [CustomerAccounts](docs/sdks/customeraccounts/README.md)
+### [.CustomerAccounts](docs/sdks/customeraccounts/README.md)
 
 * [AccountDetailsUsingGET](docs/sdks/customeraccounts/README.md#accountdetailsusingget) - Get account details by account id
 * [AccountListUsingGET](docs/sdks/customeraccounts/README.md#accountlistusingget) - Get list of accounts

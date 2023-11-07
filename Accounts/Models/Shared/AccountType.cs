@@ -14,30 +14,26 @@ namespace Accounts.Models.Shared
     using System;
     
     /// <summary>
-    /// Type of account number
+    /// Account type
     /// </summary>
-    public enum AccountNumberType
+    public enum AccountType
     {
-        [JsonProperty("IBAN")]
-        Iban,
-        [JsonProperty("BBAN_NO")]
-        BbanNo,
-        [JsonProperty("BBAN_SE")]
-        BbanSe,
-        [JsonProperty("BBAN_DK")]
-        BbanDk,
+        [JsonProperty("Current")]
+        Current,
+        [JsonProperty("Savings")]
+        Savings,
     }
 
-    public static class AccountNumberTypeExtension
+    public static class AccountTypeExtension
     {
-        public static string Value(this AccountNumberType value)
+        public static string Value(this AccountType value)
         {
             return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
-        public static AccountNumberType ToEnum(this string value)
+        public static AccountType ToEnum(this string value)
         {
-            foreach(var field in typeof(AccountNumberType).GetFields())
+            foreach(var field in typeof(AccountType).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)
@@ -50,14 +46,14 @@ namespace Accounts.Models.Shared
                 {
                     var enumVal = field.GetValue(null);
 
-                    if (enumVal is AccountNumberType)
+                    if (enumVal is AccountType)
                     {
-                        return (AccountNumberType)enumVal;
+                        return (AccountType)enumVal;
                     }
                 }
             }
 
-            throw new Exception($"Unknown value {value} for enum AccountNumberType");
+            throw new Exception($"Unknown value {value} for enum AccountType");
         }
     }
 }

@@ -1,5 +1,5 @@
-# CustomerAccountsSDK
-(*CustomerAccounts*)
+# CustomerAccounts
+(*.CustomerAccounts*)
 
 ## Overview
 
@@ -24,7 +24,7 @@ using Accounts;
 using Accounts.Models.Shared;
 using Accounts.Models.Operations;
 
-var sdk = new AccountsSDK(
+var sdk = new Accounts(
     security: new Security() {
         DecoupledAuth = "",
         OAuth2 = "",
@@ -66,7 +66,7 @@ using Accounts;
 using Accounts.Models.Shared;
 using Accounts.Models.Operations;
 
-var sdk = new AccountsSDK(
+var sdk = new Accounts(
     security: new Security() {
         DecoupledAuth = "",
         OAuth2 = "",
@@ -107,7 +107,7 @@ using Accounts;
 using Accounts.Models.Shared;
 using Accounts.Models.Operations;
 
-var sdk = new AccountsSDK(
+var sdk = new Accounts(
     security: new Security() {
         DecoupledAuth = "",
         OAuth2 = "",
@@ -149,7 +149,7 @@ using Accounts;
 using Accounts.Models.Shared;
 using Accounts.Models.Operations;
 
-var sdk = new AccountsSDK(
+var sdk = new Accounts(
     security: new Security() {
         DecoupledAuth = "",
         OAuth2 = "",
@@ -192,7 +192,7 @@ using Accounts.Models.Shared;
 using Accounts.Models.Operations;
 using NodaTime;
 
-var sdk = new AccountsSDK(
+var sdk = new Accounts(
     security: new Security() {
         DecoupledAuth = "",
         OAuth2 = "",
