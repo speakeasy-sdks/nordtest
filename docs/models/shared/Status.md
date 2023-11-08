@@ -1,4 +1,4 @@
-# AccountDetailsStatus
+# Status
 
 Status of account
 

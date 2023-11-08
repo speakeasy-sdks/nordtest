@@ -14,30 +14,26 @@ namespace Accounts.Models.Shared
     using System;
     
     /// <summary>
-    /// Country code where the account is held according to ISO ALPHA-2
+    /// Status of account
     /// </summary>
-    public enum AccountDetailsCountry
+    public enum Status
     {
-        [JsonProperty("FI")]
-        Fi,
-        [JsonProperty("SE")]
-        Se,
-        [JsonProperty("DK")]
-        Dk,
-        [JsonProperty("NO")]
-        No,
+        [JsonProperty("OPEN")]
+        Open,
+        [JsonProperty("CLOSED")]
+        Closed,
     }
 
-    public static class AccountDetailsCountryExtension
+    public static class StatusExtension
     {
-        public static string Value(this AccountDetailsCountry value)
+        public static string Value(this Status value)
         {
             return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
-        public static AccountDetailsCountry ToEnum(this string value)
+        public static Status ToEnum(this string value)
         {
-            foreach(var field in typeof(AccountDetailsCountry).GetFields())
+            foreach(var field in typeof(Status).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)
@@ -50,14 +46,14 @@ namespace Accounts.Models.Shared
                 {
                     var enumVal = field.GetValue(null);
 
-                    if (enumVal is AccountDetailsCountry)
+                    if (enumVal is Status)
                     {
-                        return (AccountDetailsCountry)enumVal;
+                        return (Status)enumVal;
                     }
                 }
             }
 
-            throw new Exception($"Unknown value {value} for enum AccountDetailsCountry");
+            throw new Exception($"Unknown value {value} for enum Status");
         }
     }
 }

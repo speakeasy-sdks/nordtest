@@ -20,13 +20,13 @@ namespace Accounts
     /// <summary>
     /// Accounts API: Nordea Account Information Services API v5
     /// </summary>
-    public interface IAccountsSDK
+    public interface IAccounts
     {
 
         /// <summary>
         /// Customer accounts
         /// </summary>
-        public ICustomerAccountsSDK CustomerAccounts { get; }
+        public ICustomerAccounts CustomerAccounts { get; }
     }
     
     public class SDKConfig
@@ -36,27 +36,27 @@ namespace Accounts
     /// <summary>
     /// Accounts API: Nordea Account Information Services API v5
     /// </summary>
-    public class AccountsSDK: IAccountsSDK
+    public class Accounts: IAccounts
     {
         public SDKConfig Config { get; private set; }
         public static List<string> ServerList = new List<string>()
         {
-            "//api.nordeaopenbanking.com/personal/",
+            "https:////api.nordeaopenbanking.com/personal/",
         };
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.2.0";
-        private const string _sdkGenVersion = "2.169.0";
+        private const string _sdkVersion = "0.3.0";
+        private const string _sdkGenVersion = "2.183.0";
         private const string _openapiDocVersion = "5.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 0.2.0 2.169.0 5.0 accounts";
+        private const string _userAgent = "speakeasy-sdk/csharp 0.3.0 2.183.0 5.0 accounts";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
-        public ICustomerAccountsSDK CustomerAccounts { get; private set; }
+        public ICustomerAccounts CustomerAccounts { get; private set; }
 
-        public AccountsSDK(Security? security = null, string? serverUrl = null, ISpeakeasyHttpClient? client = null)
+        public Accounts(Security? security = null, string? serverUrl = null, ISpeakeasyHttpClient? client = null)
         {
-            _serverUrl = serverUrl ?? AccountsSDK.ServerList[0];
+            _serverUrl = serverUrl ?? Accounts.ServerList[0];
 
             _defaultClient = new SpeakeasyHttpClient(client);
             _securityClient = _defaultClient;
@@ -70,7 +70,7 @@ namespace Accounts
             {
             };
 
-            CustomerAccounts = new CustomerAccountsSDK(_defaultClient, _securityClient, _serverUrl, Config);
+            CustomerAccounts = new CustomerAccounts(_defaultClient, _securityClient, _serverUrl, Config);
         }
     }
 }

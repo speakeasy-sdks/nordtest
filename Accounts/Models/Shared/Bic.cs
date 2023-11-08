@@ -14,26 +14,30 @@ namespace Accounts.Models.Shared
     using System;
     
     /// <summary>
-    /// Account type
+    /// Business Identifier Code of account servicing institution according to ISO 9362.
     /// </summary>
-    public enum AccountDetailsAccountType
+    public enum Bic
     {
-        [JsonProperty("Current")]
-        Current,
-        [JsonProperty("Savings")]
-        Savings,
+        [JsonProperty("NDEAFIHH")]
+        Ndeafihh,
+        [JsonProperty("NDEASESS")]
+        Ndeasess,
+        [JsonProperty("NDEADKKK")]
+        Ndeadkkk,
+        [JsonProperty("NDEANOKK")]
+        Ndeanokk,
     }
 
-    public static class AccountDetailsAccountTypeExtension
+    public static class BicExtension
     {
-        public static string Value(this AccountDetailsAccountType value)
+        public static string Value(this Bic value)
         {
             return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
-        public static AccountDetailsAccountType ToEnum(this string value)
+        public static Bic ToEnum(this string value)
         {
-            foreach(var field in typeof(AccountDetailsAccountType).GetFields())
+            foreach(var field in typeof(Bic).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)
@@ -46,14 +50,14 @@ namespace Accounts.Models.Shared
                 {
                     var enumVal = field.GetValue(null);
 
-                    if (enumVal is AccountDetailsAccountType)
+                    if (enumVal is Bic)
                     {
-                        return (AccountDetailsAccountType)enumVal;
+                        return (Bic)enumVal;
                     }
                 }
             }
 
-            throw new Exception($"Unknown value {value} for enum AccountDetailsAccountType");
+            throw new Exception($"Unknown value {value} for enum Bic");
         }
     }
 }

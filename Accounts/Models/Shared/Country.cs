@@ -14,30 +14,30 @@ namespace Accounts.Models.Shared
     using System;
     
     /// <summary>
-    /// Business Identifier Code of account servicing institution according to ISO 9362.
+    /// Country code where the account is held according to ISO ALPHA-2
     /// </summary>
-    public enum BankInfoBic
+    public enum Country
     {
-        [JsonProperty("NDEAFIHH")]
-        Ndeafihh,
-        [JsonProperty("NDEASESS")]
-        Ndeasess,
-        [JsonProperty("NDEADKKK")]
-        Ndeadkkk,
-        [JsonProperty("NDEANOKK")]
-        Ndeanokk,
+        [JsonProperty("FI")]
+        Fi,
+        [JsonProperty("SE")]
+        Se,
+        [JsonProperty("DK")]
+        Dk,
+        [JsonProperty("NO")]
+        No,
     }
 
-    public static class BankInfoBicExtension
+    public static class CountryExtension
     {
-        public static string Value(this BankInfoBic value)
+        public static string Value(this Country value)
         {
             return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
-        public static BankInfoBic ToEnum(this string value)
+        public static Country ToEnum(this string value)
         {
-            foreach(var field in typeof(BankInfoBic).GetFields())
+            foreach(var field in typeof(Country).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)
@@ -50,14 +50,14 @@ namespace Accounts.Models.Shared
                 {
                     var enumVal = field.GetValue(null);
 
-                    if (enumVal is BankInfoBic)
+                    if (enumVal is Country)
                     {
-                        return (BankInfoBic)enumVal;
+                        return (Country)enumVal;
                     }
                 }
             }
 
-            throw new Exception($"Unknown value {value} for enum BankInfoBic");
+            throw new Exception($"Unknown value {value} for enum Country");
         }
     }
 }

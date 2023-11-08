@@ -14,26 +14,30 @@ namespace Accounts.Models.Shared
     using System;
     
     /// <summary>
-    /// Status of account
+    /// Type of account number
     /// </summary>
-    public enum AccountDetailsStatus
+    public enum Type
     {
-        [JsonProperty("OPEN")]
-        Open,
-        [JsonProperty("CLOSED")]
-        Closed,
+        [JsonProperty("IBAN")]
+        Iban,
+        [JsonProperty("BBAN_NO")]
+        BbanNo,
+        [JsonProperty("BBAN_SE")]
+        BbanSe,
+        [JsonProperty("BBAN_DK")]
+        BbanDk,
     }
 
-    public static class AccountDetailsStatusExtension
+    public static class TypeExtension
     {
-        public static string Value(this AccountDetailsStatus value)
+        public static string Value(this Type value)
         {
             return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
-        public static AccountDetailsStatus ToEnum(this string value)
+        public static Type ToEnum(this string value)
         {
-            foreach(var field in typeof(AccountDetailsStatus).GetFields())
+            foreach(var field in typeof(Type).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)
@@ -46,14 +50,14 @@ namespace Accounts.Models.Shared
                 {
                     var enumVal = field.GetValue(null);
 
-                    if (enumVal is AccountDetailsStatus)
+                    if (enumVal is Type)
                     {
-                        return (AccountDetailsStatus)enumVal;
+                        return (Type)enumVal;
                     }
                 }
             }
 
-            throw new Exception($"Unknown value {value} for enum AccountDetailsStatus");
+            throw new Exception($"Unknown value {value} for enum Type");
         }
     }
 }

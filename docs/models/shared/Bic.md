@@ -1,4 +1,4 @@
-# BankInfoBic
+# Bic
 
 Business Identifier Code of account servicing institution according to ISO 9362.
 

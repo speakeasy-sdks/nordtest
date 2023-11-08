@@ -1,4 +1,4 @@
-# AccountDetailsCountry
+# Country
 
 Country code where the account is held according to ISO ALPHA-2
 

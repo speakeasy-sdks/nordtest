@@ -1,4 +1,4 @@
-# AccountDetailsAccountType
+# AccountType
 
 Account type
 

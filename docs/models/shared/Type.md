@@ -1,4 +1,4 @@
-# AccountNumberType
+# Type
 
 Type of account number
 
