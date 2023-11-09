@@ -48,7 +48,7 @@ namespace Accounts.Models.Shared
         /// Account type
         /// </summary>
         [JsonProperty("account_type")]
-        public AccountDetailsAccountType AccountType { get; set; } = default!;
+        public AccountType AccountType { get; set; } = default!;
 
         /// <summary>
         /// Available balance indicates the funds which are available to the account holder at the time of the query
@@ -72,7 +72,7 @@ namespace Accounts.Models.Shared
         /// Country code where the account is held according to ISO ALPHA-2
         /// </summary>
         [JsonProperty("country")]
-        public AccountDetailsCountry Country { get; set; } = default!;
+        public Country Country { get; set; } = default!;
 
         /// <summary>
         /// Amount of credit extended to account holder beyond account booked balance
@@ -108,7 +108,7 @@ namespace Accounts.Models.Shared
         /// Status of account
         /// </summary>
         [JsonProperty("status")]
-        public AccountDetailsStatus Status { get; set; } = default!;
+        public Status Status { get; set; } = default!;
 
         /// <summary>
         /// Value dated balance is the balance on the basis of which interest is calculated on the account

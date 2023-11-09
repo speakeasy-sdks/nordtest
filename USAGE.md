@@ -6,7 +6,7 @@ using Accounts;
 using Accounts.Models.Shared;
 using Accounts.Models.Operations;
 
-var sdk = new AccountsSDK(
+var sdk = new Accounts(
     security: new Security() {
         DecoupledAuth = "",
         OAuth2 = "",
