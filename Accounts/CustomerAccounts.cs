@@ -22,7 +22,7 @@ namespace Accounts
     /// <summary>
     /// Customer accounts
     /// </summary>
-    public interface ICustomerAccountsSDK
+    public interface ICustomerAccounts
     {
 
         /// <summary>
@@ -54,19 +54,19 @@ namespace Accounts
     /// <summary>
     /// Customer accounts
     /// </summary>
-    public class CustomerAccountsSDK: ICustomerAccountsSDK
+    public class CustomerAccounts: ICustomerAccounts
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.2.0";
-        private const string _sdkGenVersion = "2.169.0";
+        private const string _sdkVersion = "0.3.0";
+        private const string _sdkGenVersion = "2.188.3";
         private const string _openapiDocVersion = "5.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 0.2.0 2.169.0 5.0 accounts";
+        private const string _userAgent = "speakeasy-sdk/csharp 0.3.0 2.188.3 5.0 accounts";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
 
-        public CustomerAccountsSDK(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
+        public CustomerAccounts(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
         {
             _defaultClient = defaultClient;
             _securityClient = securityClient;

@@ -22,7 +22,7 @@ namespace Accounts.Models.Shared
         /// Type of account number
         /// </summary>
         [JsonProperty("_type")]
-        public AccountNumberType Type { get; set; } = default!;
+        public Type Type { get; set; } = default!;
 
         /// <summary>
         /// Actual account number
