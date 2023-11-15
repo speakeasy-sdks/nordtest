@@ -1,17 +1,10 @@
 <!-- Start SDK Example Usage -->
-
-
 ```csharp
 using Accounts;
 using Accounts.Models.Shared;
 using Accounts.Models.Operations;
 
-var sdk = new AccountsSDK(
-    security: new Security() {
-        DecoupledAuth = "",
-        OAuth2 = "",
-    }
-);
+var sdk = new Accounts();
 
 var res = await sdk.CustomerAccounts.AccountDetailsUsingGETAsync(new AccountDetailsUsingGETRequest() {
     Signature = "string",

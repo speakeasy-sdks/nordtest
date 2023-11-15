@@ -1,4 +1,4 @@
-# CustomerAccountsSDK
+# CustomerAccounts
 (*CustomerAccounts*)
 
 ## Overview
@@ -24,12 +24,7 @@ using Accounts;
 using Accounts.Models.Shared;
 using Accounts.Models.Operations;
 
-var sdk = new AccountsSDK(
-    security: new Security() {
-        DecoupledAuth = "",
-        OAuth2 = "",
-    }
-);
+var sdk = new Accounts();
 
 var res = await sdk.CustomerAccounts.AccountDetailsUsingGETAsync(new AccountDetailsUsingGETRequest() {
     Signature = "string",
@@ -47,12 +42,12 @@ var res = await sdk.CustomerAccounts.AccountDetailsUsingGETAsync(new AccountDeta
 
 | Parameter                                                                                 | Type                                                                                      | Required                                                                                  | Description                                                                               |
 | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| `request`                                                                                 | [AccountDetailsUsingGETRequest](../../models/operations/AccountDetailsUsingGETRequest.md) | :heavy_check_mark:                                                                        | The request object to use for the request.                                                |
+| `request`                                                                                 | [AccountDetailsUsingGETRequest](../../Models/Operations/AccountDetailsUsingGETRequest.md) | :heavy_check_mark:                                                                        | The request object to use for the request.                                                |
 
 
 ### Response
 
-**[AccountDetailsUsingGETResponse](../../models/operations/AccountDetailsUsingGETResponse.md)**
+**[AccountDetailsUsingGETResponse](../../Models/Operations/AccountDetailsUsingGETResponse.md)**
 
 
 ## AccountListUsingGET
@@ -66,12 +61,7 @@ using Accounts;
 using Accounts.Models.Shared;
 using Accounts.Models.Operations;
 
-var sdk = new AccountsSDK(
-    security: new Security() {
-        DecoupledAuth = "",
-        OAuth2 = "",
-    }
-);
+var sdk = new Accounts();
 
 var res = await sdk.CustomerAccounts.AccountListUsingGETAsync(new AccountListUsingGETRequest() {
     Signature = "string",
@@ -88,12 +78,12 @@ var res = await sdk.CustomerAccounts.AccountListUsingGETAsync(new AccountListUsi
 
 | Parameter                                                                           | Type                                                                                | Required                                                                            | Description                                                                         |
 | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| `request`                                                                           | [AccountListUsingGETRequest](../../models/operations/AccountListUsingGETRequest.md) | :heavy_check_mark:                                                                  | The request object to use for the request.                                          |
+| `request`                                                                           | [AccountListUsingGETRequest](../../Models/Operations/AccountListUsingGETRequest.md) | :heavy_check_mark:                                                                  | The request object to use for the request.                                          |
 
 
 ### Response
 
-**[AccountListUsingGETResponse](../../models/operations/AccountListUsingGETResponse.md)**
+**[AccountListUsingGETResponse](../../Models/Operations/AccountListUsingGETResponse.md)**
 
 
 ## ConvertV4AccountIdToV5UsingGET
@@ -107,12 +97,7 @@ using Accounts;
 using Accounts.Models.Shared;
 using Accounts.Models.Operations;
 
-var sdk = new AccountsSDK(
-    security: new Security() {
-        DecoupledAuth = "",
-        OAuth2 = "",
-    }
-);
+var sdk = new Accounts();
 
 var res = await sdk.CustomerAccounts.ConvertV4AccountIdToV5UsingGETAsync(new ConvertV4AccountIdToV5UsingGETRequest() {
     Signature = "string",
@@ -130,12 +115,12 @@ var res = await sdk.CustomerAccounts.ConvertV4AccountIdToV5UsingGETAsync(new Con
 
 | Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
 | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                 | [ConvertV4AccountIdToV5UsingGETRequest](../../models/operations/ConvertV4AccountIdToV5UsingGETRequest.md) | :heavy_check_mark:                                                                                        | The request object to use for the request.                                                                |
+| `request`                                                                                                 | [ConvertV4AccountIdToV5UsingGETRequest](../../Models/Operations/ConvertV4AccountIdToV5UsingGETRequest.md) | :heavy_check_mark:                                                                                        | The request object to use for the request.                                                                |
 
 
 ### Response
 
-**[ConvertV4AccountIdToV5UsingGETResponse](../../models/operations/ConvertV4AccountIdToV5UsingGETResponse.md)**
+**[ConvertV4AccountIdToV5UsingGETResponse](../../Models/Operations/ConvertV4AccountIdToV5UsingGETResponse.md)**
 
 
 ## ConvertV5AccountIdToV4UsingGET
@@ -149,12 +134,7 @@ using Accounts;
 using Accounts.Models.Shared;
 using Accounts.Models.Operations;
 
-var sdk = new AccountsSDK(
-    security: new Security() {
-        DecoupledAuth = "",
-        OAuth2 = "",
-    }
-);
+var sdk = new Accounts();
 
 var res = await sdk.CustomerAccounts.ConvertV5AccountIdToV4UsingGETAsync(new ConvertV5AccountIdToV4UsingGETRequest() {
     Signature = "string",
@@ -172,12 +152,12 @@ var res = await sdk.CustomerAccounts.ConvertV5AccountIdToV4UsingGETAsync(new Con
 
 | Parameter                                                                                                 | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
 | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                 | [ConvertV5AccountIdToV4UsingGETRequest](../../models/operations/ConvertV5AccountIdToV4UsingGETRequest.md) | :heavy_check_mark:                                                                                        | The request object to use for the request.                                                                |
+| `request`                                                                                                 | [ConvertV5AccountIdToV4UsingGETRequest](../../Models/Operations/ConvertV5AccountIdToV4UsingGETRequest.md) | :heavy_check_mark:                                                                                        | The request object to use for the request.                                                                |
 
 
 ### Response
 
-**[ConvertV5AccountIdToV4UsingGETResponse](../../models/operations/ConvertV5AccountIdToV4UsingGETResponse.md)**
+**[ConvertV5AccountIdToV4UsingGETResponse](../../Models/Operations/ConvertV5AccountIdToV4UsingGETResponse.md)**
 
 
 ## TransactionListUsingGET
@@ -192,12 +172,7 @@ using Accounts.Models.Shared;
 using Accounts.Models.Operations;
 using NodaTime;
 
-var sdk = new AccountsSDK(
-    security: new Security() {
-        DecoupledAuth = "",
-        OAuth2 = "",
-    }
-);
+var sdk = new Accounts();
 
 var res = await sdk.CustomerAccounts.TransactionListUsingGETAsync(new TransactionListUsingGETRequest() {
     Signature = "string",
@@ -215,10 +190,10 @@ var res = await sdk.CustomerAccounts.TransactionListUsingGETAsync(new Transactio
 
 | Parameter                                                                                   | Type                                                                                        | Required                                                                                    | Description                                                                                 |
 | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| `request`                                                                                   | [TransactionListUsingGETRequest](../../models/operations/TransactionListUsingGETRequest.md) | :heavy_check_mark:                                                                          | The request object to use for the request.                                                  |
+| `request`                                                                                   | [TransactionListUsingGETRequest](../../Models/Operations/TransactionListUsingGETRequest.md) | :heavy_check_mark:                                                                          | The request object to use for the request.                                                  |
 
 
 ### Response
 
-**[TransactionListUsingGETResponse](../../models/operations/TransactionListUsingGETResponse.md)**
+**[TransactionListUsingGETResponse](../../Models/Operations/TransactionListUsingGETResponse.md)**
 
