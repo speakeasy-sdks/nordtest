@@ -22,7 +22,7 @@ namespace Accounts.Models.Shared
         /// Business Identifier Code of account servicing institution according to ISO 9362.
         /// </summary>
         [JsonProperty("bic")]
-        public BankInfoBic Bic { get; set; } = default!;
+        public Bic Bic { get; set; } = default!;
 
         /// <summary>
         /// Country code according to ISO Alpha-2

@@ -22,7 +22,7 @@ namespace Accounts
     /// <summary>
     /// Customer accounts
     /// </summary>
-    public interface ICustomerAccountsSDK
+    public interface ICustomerAccounts
     {
 
         /// <summary>
@@ -54,19 +54,19 @@ namespace Accounts
     /// <summary>
     /// Customer accounts
     /// </summary>
-    public class CustomerAccountsSDK: ICustomerAccountsSDK
+    public class CustomerAccounts: ICustomerAccounts
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.2.0";
-        private const string _sdkGenVersion = "2.169.0";
+        private const string _sdkVersion = "0.3.0";
+        private const string _sdkGenVersion = "2.192.3";
         private const string _openapiDocVersion = "5.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 0.2.0 2.169.0 5.0 accounts";
+        private const string _userAgent = "speakeasy-sdk/csharp 0.3.0 2.192.3 5.0 accounts";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
 
-        public CustomerAccountsSDK(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
+        public CustomerAccounts(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
         {
             _defaultClient = defaultClient;
             _securityClient = securityClient;
@@ -77,14 +77,9 @@ namespace Accounts
 
         public async Task<AccountDetailsUsingGETResponse> AccountDetailsUsingGETAsync(AccountDetailsUsingGETRequest? request = null)
         {
-            string baseUrl = _serverUrl;
-            if (baseUrl.EndsWith("/"))
-            {
-                baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
-            }
+            string baseUrl = this.Config.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/v5/accounts/{id}", request);
             
-
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
             HeaderSerializer.PopulateHeaders(ref httpRequest, request);
@@ -127,14 +122,9 @@ namespace Accounts
 
         public async Task<AccountListUsingGETResponse> AccountListUsingGETAsync(AccountListUsingGETRequest? request = null)
         {
-            string baseUrl = _serverUrl;
-            if (baseUrl.EndsWith("/"))
-            {
-                baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
-            }
+            string baseUrl = this.Config.GetTemplatedServerDetails();
             var urlString = baseUrl + "/v5/accounts";
             
-
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
             HeaderSerializer.PopulateHeaders(ref httpRequest, request);
@@ -177,14 +167,9 @@ namespace Accounts
 
         public async Task<ConvertV4AccountIdToV5UsingGETResponse> ConvertV4AccountIdToV5UsingGETAsync(ConvertV4AccountIdToV5UsingGETRequest? request = null)
         {
-            string baseUrl = _serverUrl;
-            if (baseUrl.EndsWith("/"))
-            {
-                baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
-            }
+            string baseUrl = this.Config.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/v5/accounts/id-v4-to-v5/{id}", request);
             
-
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
             HeaderSerializer.PopulateHeaders(ref httpRequest, request);
@@ -227,14 +212,9 @@ namespace Accounts
 
         public async Task<ConvertV5AccountIdToV4UsingGETResponse> ConvertV5AccountIdToV4UsingGETAsync(ConvertV5AccountIdToV4UsingGETRequest? request = null)
         {
-            string baseUrl = _serverUrl;
-            if (baseUrl.EndsWith("/"))
-            {
-                baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
-            }
+            string baseUrl = this.Config.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/v5/accounts/id-v5-to-v4/{id}", request);
             
-
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
             HeaderSerializer.PopulateHeaders(ref httpRequest, request);
@@ -277,14 +257,9 @@ namespace Accounts
 
         public async Task<TransactionListUsingGETResponse> TransactionListUsingGETAsync(TransactionListUsingGETRequest? request = null)
         {
-            string baseUrl = _serverUrl;
-            if (baseUrl.EndsWith("/"))
-            {
-                baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
-            }
+            string baseUrl = this.Config.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/v5/accounts/{id}/transactions", request);
             
-
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
             HeaderSerializer.PopulateHeaders(ref httpRequest, request);
