@@ -1,12 +1,10 @@
-<!-- Start SDK Example Usage -->
-
-
+<!-- Start SDK Example Usage [usage] -->
 ```csharp
 using Accounts;
 using Accounts.Models.Shared;
 using Accounts.Models.Operations;
 
-var sdk = new AccountsSDK(
+var sdk = new Accounts(
     security: new Security() {
         DecoupledAuth = "",
         OAuth2 = "",
@@ -24,4 +22,4 @@ var res = await sdk.CustomerAccounts.AccountDetailsUsingGETAsync(new AccountDeta
 
 // handle response
 ```
-<!-- End SDK Example Usage -->
+<!-- End SDK Example Usage [usage] -->

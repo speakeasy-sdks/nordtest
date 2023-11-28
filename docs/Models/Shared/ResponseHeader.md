@@ -1,0 +1,13 @@
+# ResponseHeader
+
+External response header
+
+
+## Fields
+
+| Field                                                                                 | Type                                                                                  | Required                                                                              | Description                                                                           | Example                                                                               |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `CreationDateTime`                                                                    | [DateTime](https://learn.microsoft.com/en-us/dotnet/api/system.datetime?view=net-5.0) | :heavy_minus_sign:                                                                    | Response creation time                                                                |                                                                                       |
+| `HttpCode`                                                                            | *int*                                                                                 | :heavy_minus_sign:                                                                    | HTTP code for response                                                                | 200                                                                                   |
+| `MessageIdentification`                                                               | *string*                                                                              | :heavy_minus_sign:                                                                    | Original request id for correlation purposes                                          |                                                                                       |
+| `MessagePagination`                                                                   | [Pagination](../../Models/Shared/Pagination.md)                                       | :heavy_minus_sign:                                                                    | Details of paginated response                                                         |                                                                                       |
