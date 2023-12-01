@@ -6,7 +6,7 @@
     
 </div>
 
-<!-- Start SDK Installation -->
+<!-- Start SDK Installation [installation] -->
 ## SDK Installation
 
 ### Nuget
@@ -14,10 +14,13 @@
 ```bash
 dotnet add package accounts
 ```
-<!-- End SDK Installation -->
+<!-- End SDK Installation [installation] -->
 
+<!-- Start SDK Example Usage [usage] -->
 ## SDK Example Usage
-<!-- Start SDK Example Usage -->
+
+### Example
+
 ```csharp
 using Accounts;
 using Accounts.Models.Shared;
@@ -27,25 +30,25 @@ var sdk = new AccountsSDK(
     security: new Security() {
         DecoupledAuth = "",
         OAuth2 = "",
-    }
-);
+    });
 
-var res = await sdk.CustomerAccounts.AccountDetailsUsingGETAsync(new AccountDetailsUsingGETRequest() {
+AccountDetailsUsingGETRequest req = new AccountDetailsUsingGETRequest() {
     Signature = "string",
     XIBMClientId = "string",
     XIBMClientSecret = "string",
     XNordeaOriginatingDate = "string",
     XNordeaOriginatingHost = "string",
     Id = "<ID>",
-});
+};
+
+var res = await sdk.CustomerAccounts.AccountDetailsUsingGETAsync(req);
 
 // handle response
 ```
-<!-- End SDK Example Usage -->
+<!-- End SDK Example Usage [usage] -->
 
-<!-- Start SDK Available Operations -->
+<!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
-
 
 ### [CustomerAccounts](docs/sdks/customeraccounts/README.md)
 
@@ -54,11 +57,28 @@ var res = await sdk.CustomerAccounts.AccountDetailsUsingGETAsync(new AccountDeta
 * [ConvertV4AccountIdToV5UsingGET](docs/sdks/customeraccounts/README.md#convertv4accountidtov5usingget) - Convert V4 technical account identifier to V5
 * [ConvertV5AccountIdToV4UsingGET](docs/sdks/customeraccounts/README.md#convertv5accountidtov4usingget) - Convert V5 technical account identifier to V4
 * [TransactionListUsingGET](docs/sdks/customeraccounts/README.md#transactionlistusingget) - Get account transactions
-<!-- End SDK Available Operations -->
+<!-- End Available Resources and Operations [operations] -->
 
-<!-- Start Dev Containers -->
+<!-- Start Server Selection [server] -->
+## Server Selection
 
-<!-- End Dev Containers -->
+## Server Selection
+
+### Select Server by Index
+
+You can override the default server globally by passing a server index to the `serverIndex: number` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
+
+| # | Server | Variables |
+| - | ------ | --------- |
+| 0 | `https:////api.nordeaopenbanking.com/personal/` | None |
+
+
+
+
+### Override Server URL Per-Client
+
+The default server can also be overridden globally by passing a URL to the `serverUrl: str` optional parameter when initializing the SDK client instance. For example:
+<!-- End Server Selection [server] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 

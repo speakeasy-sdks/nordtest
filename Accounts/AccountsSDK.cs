@@ -12,10 +12,13 @@ namespace Accounts
 {
     using Accounts.Models.Shared;
     using Accounts.Utils;
+    using Newtonsoft.Json;
     using System.Collections.Generic;
     using System.Net.Http;
     using System.Threading.Tasks;
     using System;
+
+
 
     /// <summary>
     /// Accounts API: Nordea Account Information Services API v5
@@ -26,11 +29,27 @@ namespace Accounts
         /// <summary>
         /// Customer accounts
         /// </summary>
-        public ICustomerAccountsSDK CustomerAccounts { get; }
+        public ICustomerAccounts CustomerAccounts { get; }
     }
     
     public class SDKConfig
     {
+        public static string[] ServerList = new string[]
+        {
+            "https:////api.nordeaopenbanking.com/personal/",
+        };
+        /// Contains the list of servers available to the SDK
+        public string serverUrl = "";
+        public int serverIndex = 0;
+
+        public string GetTemplatedServerDetails()
+        {
+            if (!String.IsNullOrEmpty(this.serverUrl))
+            {
+                return Utilities.TemplateUrl(Utilities.RemoveSuffix(this.serverUrl, "/"), new Dictionary<string, string>());
+            }
+            return Utilities.TemplateUrl(SDKConfig.ServerList[this.serverIndex], new Dictionary<string, string>());
+        }
     }
 
     /// <summary>
@@ -38,25 +57,26 @@ namespace Accounts
     /// </summary>
     public class AccountsSDK: IAccountsSDK
     {
-        public SDKConfig Config { get; private set; }
-        public static List<string> ServerList = new List<string>()
-        {
-            "//api.nordeaopenbanking.com/personal/",
-        };
+        public SDKConfig SDKConfiguration { get; private set; }
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.2.0";
-        private const string _sdkGenVersion = "2.169.0";
+        private const string _sdkVersion = "0.3.0";
+        private const string _sdkGenVersion = "2.205.0";
         private const string _openapiDocVersion = "5.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 0.2.0 2.169.0 5.0 accounts";
+        private const string _userAgent = "speakeasy-sdk/csharp 0.3.0 2.205.0 5.0 accounts";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
-        public ICustomerAccountsSDK CustomerAccounts { get; private set; }
+        public ICustomerAccounts CustomerAccounts { get; private set; }
 
-        public AccountsSDK(Security? security = null, string? serverUrl = null, ISpeakeasyHttpClient? client = null)
+        public AccountsSDK(Security? security = null, int? serverIndex = null, string? serverUrl = null, Dictionary<string, string>? urlParams = null, ISpeakeasyHttpClient? client = null)
         {
-            _serverUrl = serverUrl ?? AccountsSDK.ServerList[0];
+            if (serverUrl != null) {
+                if (urlParams != null) {
+                    serverUrl = Utilities.TemplateUrl(serverUrl, urlParams);
+                }
+                _serverUrl = serverUrl;
+            }
 
             _defaultClient = new SpeakeasyHttpClient(client);
             _securityClient = _defaultClient;
@@ -66,11 +86,12 @@ namespace Accounts
                 _securityClient = SecuritySerializer.Apply(_defaultClient, security);
             }
             
-            Config = new SDKConfig()
+            SDKConfiguration = new SDKConfig()
             {
+                serverUrl = _serverUrl
             };
 
-            CustomerAccounts = new CustomerAccountsSDK(_defaultClient, _securityClient, _serverUrl, Config);
+            CustomerAccounts = new CustomerAccounts(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
         }
     }
 }
