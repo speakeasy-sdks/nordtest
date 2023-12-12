@@ -28,8 +28,7 @@ using Accounts.Models.Operations;
 
 var sdk = new AccountsSDK(
     security: new Security() {
-        DecoupledAuth = "",
-        OAuth2 = "",
+        DecoupledAuth = "Bearer <YOUR_ACCESS_TOKEN_HERE>",
     });
 
 AccountDetailsUsingGETRequest req = new AccountDetailsUsingGETRequest() {

@@ -26,8 +26,7 @@ using Accounts.Models.Operations;
 
 var sdk = new AccountsSDK(
     security: new Security() {
-        DecoupledAuth = "",
-        OAuth2 = "",
+        DecoupledAuth = "Bearer <YOUR_ACCESS_TOKEN_HERE>",
     });
 
 AccountDetailsUsingGETRequest req = new AccountDetailsUsingGETRequest() {
@@ -69,8 +68,7 @@ using Accounts.Models.Operations;
 
 var sdk = new AccountsSDK(
     security: new Security() {
-        DecoupledAuth = "",
-        OAuth2 = "",
+        DecoupledAuth = "Bearer <YOUR_ACCESS_TOKEN_HERE>",
     });
 
 AccountListUsingGETRequest req = new AccountListUsingGETRequest() {
@@ -111,8 +109,7 @@ using Accounts.Models.Operations;
 
 var sdk = new AccountsSDK(
     security: new Security() {
-        DecoupledAuth = "",
-        OAuth2 = "",
+        DecoupledAuth = "Bearer <YOUR_ACCESS_TOKEN_HERE>",
     });
 
 ConvertV4AccountIdToV5UsingGETRequest req = new ConvertV4AccountIdToV5UsingGETRequest() {
@@ -154,8 +151,7 @@ using Accounts.Models.Operations;
 
 var sdk = new AccountsSDK(
     security: new Security() {
-        DecoupledAuth = "",
-        OAuth2 = "",
+        DecoupledAuth = "Bearer <YOUR_ACCESS_TOKEN_HERE>",
     });
 
 ConvertV5AccountIdToV4UsingGETRequest req = new ConvertV5AccountIdToV4UsingGETRequest() {
@@ -198,8 +194,7 @@ using NodaTime;
 
 var sdk = new AccountsSDK(
     security: new Security() {
-        DecoupledAuth = "",
-        OAuth2 = "",
+        DecoupledAuth = "Bearer <YOUR_ACCESS_TOKEN_HERE>",
     });
 
 TransactionListUsingGETRequest req = new TransactionListUsingGETRequest() {

@@ -16,9 +16,9 @@ namespace Accounts.Models.Shared
     {
 
         [SpeakeasyMetadata("security:scheme=true,type=oauth2,name=Authorization")]
-        public string DecoupledAuth { get; set; } = default!;
+        public string? DecoupledAuth { get; set; }
 
         [SpeakeasyMetadata("security:scheme=true,type=oauth2,name=Authorization")]
-        public string OAuth2 { get; set; } = default!;
+        public string? OAuth2 { get; set; }
     }
 }
