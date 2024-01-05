@@ -1,21 +1,11 @@
-configVersion: 1.0.0
-management:
-  docChecksum: 8f103990e3594ae85022ff254c8b817a
-  docVersion: "5.0"
-  speakeasyVersion: 1.126.0
-  generationVersion: 2.213.3
+configVersion: 2.0.0
 generation:
-  comments: {}
   sdkClassName: accounts
-  repoURL: https://github.com/speakeasy-sdks/nordtest.git
   usageSnippets:
     optionalPropertyRendering: withExample
+  fixes:
+    nameResolutionDec2023: false
   baseServerURL: ""
-features:
-  csharp:
-    core: 3.2.0
-    globalSecurity: 2.81.2
-    globalServerURLs: 2.82.2
 csharp:
   version: 0.4.0
   author: fsdf
@@ -32,5 +22,3 @@ csharp:
   maxMethodParams: 0
   outputModelSuffix: output
   packageName: accounts
-  published: true
-  repoSubDirectory: .
