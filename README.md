@@ -26,8 +26,7 @@ using Accounts;
 using Accounts.Models.Shared;
 using Accounts.Models.Operations;
 
-var sdk = new AccountsSDK(
-    security: new Security() {
+var sdk = new AccountsSDK(security: new Security() {
         DecoupledAuth = "Bearer <YOUR_ACCESS_TOKEN_HERE>",
     });
 
@@ -78,6 +77,43 @@ You can override the default server globally by passing a server index to the `s
 
 The default server can also be overridden globally by passing a URL to the `serverUrl: str` optional parameter when initializing the SDK client instance. For example:
 <!-- End Server Selection [server] -->
+
+<!-- Start Authentication [security] -->
+## Authentication
+
+### Per-Client Security Schemes
+
+This SDK supports the following security schemes globally:
+
+| Name            | Type            | Scheme          |
+| --------------- | --------------- | --------------- |
+| `decoupledAuth` | oauth2          | OAuth2 token    |
+| `oAuth2`        | oauth2          | OAuth2 token    |
+
+You can set the security parameters through the `security` optional parameter when initializing the SDK client instance. The selected scheme will be used by default to authenticate with the API for all operations that support it. For example:
+```csharp
+using Accounts;
+using Accounts.Models.Shared;
+using Accounts.Models.Operations;
+
+var sdk = new AccountsSDK(security: new Security() {
+        DecoupledAuth = "Bearer <YOUR_ACCESS_TOKEN_HERE>",
+    });
+
+AccountDetailsUsingGETRequest req = new AccountDetailsUsingGETRequest() {
+    Signature = "string",
+    XIBMClientId = "string",
+    XIBMClientSecret = "string",
+    XNordeaOriginatingDate = "string",
+    XNordeaOriginatingHost = "string",
+    Id = "<ID>",
+};
+
+var res = await sdk.CustomerAccounts.AccountDetailsUsingGETAsync(req);
+
+// handle response
+```
+<!-- End Authentication [security] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 

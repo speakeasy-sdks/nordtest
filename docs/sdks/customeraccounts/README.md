@@ -24,8 +24,7 @@ using Accounts;
 using Accounts.Models.Shared;
 using Accounts.Models.Operations;
 
-var sdk = new AccountsSDK(
-    security: new Security() {
+var sdk = new AccountsSDK(security: new Security() {
         DecoupledAuth = "Bearer <YOUR_ACCESS_TOKEN_HERE>",
     });
 
@@ -66,8 +65,7 @@ using Accounts;
 using Accounts.Models.Shared;
 using Accounts.Models.Operations;
 
-var sdk = new AccountsSDK(
-    security: new Security() {
+var sdk = new AccountsSDK(security: new Security() {
         DecoupledAuth = "Bearer <YOUR_ACCESS_TOKEN_HERE>",
     });
 
@@ -107,8 +105,7 @@ using Accounts;
 using Accounts.Models.Shared;
 using Accounts.Models.Operations;
 
-var sdk = new AccountsSDK(
-    security: new Security() {
+var sdk = new AccountsSDK(security: new Security() {
         DecoupledAuth = "Bearer <YOUR_ACCESS_TOKEN_HERE>",
     });
 
@@ -149,8 +146,7 @@ using Accounts;
 using Accounts.Models.Shared;
 using Accounts.Models.Operations;
 
-var sdk = new AccountsSDK(
-    security: new Security() {
+var sdk = new AccountsSDK(security: new Security() {
         DecoupledAuth = "Bearer <YOUR_ACCESS_TOKEN_HERE>",
     });
 
@@ -192,8 +188,7 @@ using Accounts.Models.Shared;
 using Accounts.Models.Operations;
 using NodaTime;
 
-var sdk = new AccountsSDK(
-    security: new Security() {
+var sdk = new AccountsSDK(security: new Security() {
         DecoupledAuth = "Bearer <YOUR_ACCESS_TOKEN_HERE>",
     });
 
