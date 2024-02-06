@@ -58,18 +58,18 @@ namespace Accounts
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.5.0";
-        private const string _sdkGenVersion = "2.245.1";
+        private const string _sdkVersion = "0.6.0";
+        private const string _sdkGenVersion = "2.250.2";
         private const string _openapiDocVersion = "5.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 0.5.0 2.245.1 5.0 accounts";
+        private const string _userAgent = "speakeasy-sdk/csharp 0.6.0 2.250.2 5.0 accounts";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
-        private ISpeakeasyHttpClient _securityClient;
+        private Func<Security>? _securitySource;
 
-        public CustomerAccounts(ISpeakeasyHttpClient defaultClient, ISpeakeasyHttpClient securityClient, string serverUrl, SDKConfig config)
+        public CustomerAccounts(ISpeakeasyHttpClient defaultClient, Func<Security>? securitySource, string serverUrl, SDKConfig config)
         {
             _defaultClient = defaultClient;
-            _securityClient = securityClient;
+            _securitySource = securitySource;
             _serverUrl = serverUrl;
             SDKConfiguration = config;
         }
@@ -85,8 +85,12 @@ namespace Accounts
             HeaderSerializer.PopulateHeaders(ref httpRequest, request);
             
             
-            var client = _securityClient;
-            
+            var client = _defaultClient;
+            if (_securitySource != null)
+            {
+                client = SecuritySerializer.Apply(_defaultClient, _securitySource);
+            }
+
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
@@ -104,7 +108,7 @@ namespace Accounts
                 {
                     response.AccountDetailsResponse = JsonConvert.DeserializeObject<AccountDetailsResponse>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
-                
+
                 return response;
             }
             if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 403) || (response.StatusCode == 404))
@@ -113,11 +117,12 @@ namespace Accounts
                 {
                     response.ErrorResponse = JsonConvert.DeserializeObject<ErrorResponse>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
-                
+
                 return response;
             }
             return response;
         }
+
         
 
         public async Task<AccountListUsingGETResponse> AccountListUsingGETAsync(AccountListUsingGETRequest? request = null)
@@ -130,8 +135,12 @@ namespace Accounts
             HeaderSerializer.PopulateHeaders(ref httpRequest, request);
             
             
-            var client = _securityClient;
-            
+            var client = _defaultClient;
+            if (_securitySource != null)
+            {
+                client = SecuritySerializer.Apply(_defaultClient, _securitySource);
+            }
+
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
@@ -149,7 +158,7 @@ namespace Accounts
                 {
                     response.AccountListResponse = JsonConvert.DeserializeObject<AccountListResponse>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
-                
+
                 return response;
             }
             if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 403) || (response.StatusCode == 404))
@@ -158,11 +167,12 @@ namespace Accounts
                 {
                     response.ErrorResponse = JsonConvert.DeserializeObject<ErrorResponse>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
-                
+
                 return response;
             }
             return response;
         }
+
         
 
         public async Task<ConvertV4AccountIdToV5UsingGETResponse> ConvertV4AccountIdToV5UsingGETAsync(ConvertV4AccountIdToV5UsingGETRequest? request = null)
@@ -175,8 +185,12 @@ namespace Accounts
             HeaderSerializer.PopulateHeaders(ref httpRequest, request);
             
             
-            var client = _securityClient;
-            
+            var client = _defaultClient;
+            if (_securitySource != null)
+            {
+                client = SecuritySerializer.Apply(_defaultClient, _securitySource);
+            }
+
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
@@ -194,7 +208,7 @@ namespace Accounts
                 {
                     response.IdV4toV5Response = JsonConvert.DeserializeObject<IdV4toV5Response>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
-                
+
                 return response;
             }
             if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 403) || (response.StatusCode == 404))
@@ -203,11 +217,12 @@ namespace Accounts
                 {
                     response.ErrorResponse = JsonConvert.DeserializeObject<ErrorResponse>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
-                
+
                 return response;
             }
             return response;
         }
+
         
 
         public async Task<ConvertV5AccountIdToV4UsingGETResponse> ConvertV5AccountIdToV4UsingGETAsync(ConvertV5AccountIdToV4UsingGETRequest? request = null)
@@ -220,8 +235,12 @@ namespace Accounts
             HeaderSerializer.PopulateHeaders(ref httpRequest, request);
             
             
-            var client = _securityClient;
-            
+            var client = _defaultClient;
+            if (_securitySource != null)
+            {
+                client = SecuritySerializer.Apply(_defaultClient, _securitySource);
+            }
+
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
@@ -239,7 +258,7 @@ namespace Accounts
                 {
                     response.IdV5toV4Response = JsonConvert.DeserializeObject<IdV5toV4Response>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
-                
+
                 return response;
             }
             if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 403) || (response.StatusCode == 404))
@@ -248,11 +267,12 @@ namespace Accounts
                 {
                     response.ErrorResponse = JsonConvert.DeserializeObject<ErrorResponse>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
-                
+
                 return response;
             }
             return response;
         }
+
         
 
         public async Task<TransactionListUsingGETResponse> TransactionListUsingGETAsync(TransactionListUsingGETRequest? request = null)
@@ -265,8 +285,12 @@ namespace Accounts
             HeaderSerializer.PopulateHeaders(ref httpRequest, request);
             
             
-            var client = _securityClient;
-            
+            var client = _defaultClient;
+            if (_securitySource != null)
+            {
+                client = SecuritySerializer.Apply(_defaultClient, _securitySource);
+            }
+
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
@@ -284,7 +308,7 @@ namespace Accounts
                 {
                     response.TransactionListResponse = JsonConvert.DeserializeObject<TransactionListResponse>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
-                
+
                 return response;
             }
             if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 403) || (response.StatusCode == 404))
@@ -293,11 +317,12 @@ namespace Accounts
                 {
                     response.ErrorResponse = JsonConvert.DeserializeObject<ErrorResponse>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Ignore, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
                 }
-                
+
                 return response;
             }
             return response;
         }
+
         
     }
 }
