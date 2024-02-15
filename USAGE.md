@@ -9,12 +9,12 @@ var sdk = new AccountsSDK(security: new Security() {
     });
 
 AccountDetailsUsingGETRequest req = new AccountDetailsUsingGETRequest() {
-    Signature = "string",
-    XIBMClientId = "string",
-    XIBMClientSecret = "string",
-    XNordeaOriginatingDate = "string",
-    XNordeaOriginatingHost = "string",
-    Id = "<ID>",
+    Signature = "<value>",
+    XIBMClientId = "<value>",
+    XIBMClientSecret = "<value>",
+    XNordeaOriginatingDate = "<value>",
+    XNordeaOriginatingHost = "<value>",
+    Id = "<id>",
 };
 
 var res = await sdk.CustomerAccounts.AccountDetailsUsingGETAsync(req);

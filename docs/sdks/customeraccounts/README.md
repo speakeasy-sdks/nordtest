@@ -29,12 +29,12 @@ var sdk = new AccountsSDK(security: new Security() {
     });
 
 AccountDetailsUsingGETRequest req = new AccountDetailsUsingGETRequest() {
-    Signature = "string",
-    XIBMClientId = "string",
-    XIBMClientSecret = "string",
-    XNordeaOriginatingDate = "string",
-    XNordeaOriginatingHost = "string",
-    Id = "<ID>",
+    Signature = "<value>",
+    XIBMClientId = "<value>",
+    XIBMClientSecret = "<value>",
+    XNordeaOriginatingDate = "<value>",
+    XNordeaOriginatingHost = "<value>",
+    Id = "<id>",
 };
 
 var res = await sdk.CustomerAccounts.AccountDetailsUsingGETAsync(req);
@@ -70,11 +70,11 @@ var sdk = new AccountsSDK(security: new Security() {
     });
 
 AccountListUsingGETRequest req = new AccountListUsingGETRequest() {
-    Signature = "string",
-    XIBMClientId = "string",
-    XIBMClientSecret = "string",
-    XNordeaOriginatingDate = "string",
-    XNordeaOriginatingHost = "string",
+    Signature = "<value>",
+    XIBMClientId = "<value>",
+    XIBMClientSecret = "<value>",
+    XNordeaOriginatingDate = "<value>",
+    XNordeaOriginatingHost = "<value>",
 };
 
 var res = await sdk.CustomerAccounts.AccountListUsingGETAsync(req);
@@ -110,12 +110,12 @@ var sdk = new AccountsSDK(security: new Security() {
     });
 
 ConvertV4AccountIdToV5UsingGETRequest req = new ConvertV4AccountIdToV5UsingGETRequest() {
-    Signature = "string",
-    XIBMClientId = "string",
-    XIBMClientSecret = "string",
-    XNordeaOriginatingDate = "string",
-    XNordeaOriginatingHost = "string",
-    Id = "<ID>",
+    Signature = "<value>",
+    XIBMClientId = "<value>",
+    XIBMClientSecret = "<value>",
+    XNordeaOriginatingDate = "<value>",
+    XNordeaOriginatingHost = "<value>",
+    Id = "<id>",
 };
 
 var res = await sdk.CustomerAccounts.ConvertV4AccountIdToV5UsingGETAsync(req);
@@ -151,12 +151,12 @@ var sdk = new AccountsSDK(security: new Security() {
     });
 
 ConvertV5AccountIdToV4UsingGETRequest req = new ConvertV5AccountIdToV4UsingGETRequest() {
-    Signature = "string",
-    XIBMClientId = "string",
-    XIBMClientSecret = "string",
-    XNordeaOriginatingDate = "string",
-    XNordeaOriginatingHost = "string",
-    Id = "<ID>",
+    Signature = "<value>",
+    XIBMClientId = "<value>",
+    XIBMClientSecret = "<value>",
+    XNordeaOriginatingDate = "<value>",
+    XNordeaOriginatingHost = "<value>",
+    Id = "<id>",
 };
 
 var res = await sdk.CustomerAccounts.ConvertV5AccountIdToV4UsingGETAsync(req);
@@ -193,12 +193,12 @@ var sdk = new AccountsSDK(security: new Security() {
     });
 
 TransactionListUsingGETRequest req = new TransactionListUsingGETRequest() {
-    Signature = "string",
-    XIBMClientId = "string",
-    XIBMClientSecret = "string",
-    XNordeaOriginatingDate = "string",
-    XNordeaOriginatingHost = "string",
-    Id = "<ID>",
+    Signature = "<value>",
+    XIBMClientId = "<value>",
+    XIBMClientSecret = "<value>",
+    XNordeaOriginatingDate = "<value>",
+    XNordeaOriginatingHost = "<value>",
+    Id = "<id>",
 };
 
 var res = await sdk.CustomerAccounts.TransactionListUsingGETAsync(req);

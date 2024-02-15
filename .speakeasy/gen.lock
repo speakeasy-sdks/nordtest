@@ -4,15 +4,15 @@ management:
   docChecksum: 8f103990e3594ae85022ff254c8b817a
   docVersion: "5.0"
   speakeasyVersion: internal
-  generationVersion: 2.250.2
-  releaseVersion: 0.6.0
-  configChecksum: ba5b58be49ab089b6b5c44755d75eec4
+  generationVersion: 2.258.0
+  releaseVersion: 0.6.1
+  configChecksum: 21010a2421b0ef2139f7833a337ef143
   repoURL: https://github.com/speakeasy-sdks/nordtest.git
   repoSubDirectory: .
   published: true
 features:
   csharp:
-    core: 3.3.1
+    core: 3.3.2
     globalSecurity: 2.83.0
     globalServerURLs: 2.82.2
 generatedFiles:
