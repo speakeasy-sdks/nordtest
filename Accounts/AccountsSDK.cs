@@ -60,10 +60,10 @@ namespace Accounts
         public SDKConfig SDKConfiguration { get; private set; }
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.6.1";
-        private const string _sdkGenVersion = "2.258.0";
+        private const string _sdkVersion = "0.6.2";
+        private const string _sdkGenVersion = "2.262.2";
         private const string _openapiDocVersion = "5.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 0.6.1 2.258.0 5.0 accounts";
+        private const string _userAgent = "speakeasy-sdk/csharp 0.6.2 2.262.2 5.0 accounts";
         private string _serverUrl = "";
         private int _serverIndex = 0;
         private ISpeakeasyHttpClient _defaultClient;
