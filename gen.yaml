@@ -9,7 +9,7 @@ generation:
     requestResponseComponentNamesFeb2024: false
   baseServerURL: ""
 csharp:
-  version: 0.6.2
+  version: 0.7.0
   author: fsdf
   dotnetVersion: net5.0
   flattenGlobalSecurity: false
