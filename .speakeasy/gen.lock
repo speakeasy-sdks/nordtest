@@ -4,20 +4,21 @@ management:
   docChecksum: 8f103990e3594ae85022ff254c8b817a
   docVersion: "5.0"
   speakeasyVersion: internal
-  generationVersion: 2.262.2
-  releaseVersion: 0.6.2
-  configChecksum: f7c4188718f9c89e313d46083001153d
+  generationVersion: 2.275.4
+  releaseVersion: 0.7.0
+  configChecksum: 3c6242afc79cb5f565672c6285603df8
   repoURL: https://github.com/speakeasy-sdks/nordtest.git
   repoSubDirectory: .
   published: true
 features:
   csharp:
-    core: 3.3.2
-    globalSecurity: 2.83.1
+    core: 3.4.3
+    globalSecurity: 2.83.3
     globalServerURLs: 2.82.2
 generatedFiles:
   - Accounts/CustomerAccounts.cs
   - Accounts/AccountsSDK.cs
+  - global.json
   - Accounts/Utils/BigIntSerializer.cs
   - Accounts/Utils/DecimalSerializer.cs
   - Accounts/Utils/EnumSerializer.cs
