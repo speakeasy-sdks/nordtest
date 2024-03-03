@@ -28,27 +28,27 @@ namespace Accounts
         /// <summary>
         /// Get account details by account id
         /// </summary>
-        Task<AccountDetailsUsingGETResponse> AccountDetailsUsingGETAsync(AccountDetailsUsingGETRequest? request = null);
+        Task<AccountDetailsUsingGETResponse> AccountDetailsUsingGETAsync(AccountDetailsUsingGETRequest request);
 
         /// <summary>
         /// Get list of accounts
         /// </summary>
-        Task<AccountListUsingGETResponse> AccountListUsingGETAsync(AccountListUsingGETRequest? request = null);
+        Task<AccountListUsingGETResponse> AccountListUsingGETAsync(AccountListUsingGETRequest request);
 
         /// <summary>
         /// Convert V4 technical account identifier to V5
         /// </summary>
-        Task<ConvertV4AccountIdToV5UsingGETResponse> ConvertV4AccountIdToV5UsingGETAsync(ConvertV4AccountIdToV5UsingGETRequest? request = null);
+        Task<ConvertV4AccountIdToV5UsingGETResponse> ConvertV4AccountIdToV5UsingGETAsync(ConvertV4AccountIdToV5UsingGETRequest request);
 
         /// <summary>
         /// Convert V5 technical account identifier to V4
         /// </summary>
-        Task<ConvertV5AccountIdToV4UsingGETResponse> ConvertV5AccountIdToV4UsingGETAsync(ConvertV5AccountIdToV4UsingGETRequest? request = null);
+        Task<ConvertV5AccountIdToV4UsingGETResponse> ConvertV5AccountIdToV4UsingGETAsync(ConvertV5AccountIdToV4UsingGETRequest request);
 
         /// <summary>
         /// Get account transactions
         /// </summary>
-        Task<TransactionListUsingGETResponse> TransactionListUsingGETAsync(TransactionListUsingGETRequest? request = null);
+        Task<TransactionListUsingGETResponse> TransactionListUsingGETAsync(TransactionListUsingGETRequest request);
     }
 
     /// <summary>
@@ -58,10 +58,10 @@ namespace Accounts
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.6.2";
-        private const string _sdkGenVersion = "2.262.2";
+        private const string _sdkVersion = "0.7.0";
+        private const string _sdkGenVersion = "2.277.0";
         private const string _openapiDocVersion = "5.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 0.6.2 2.262.2 5.0 accounts";
+        private const string _userAgent = "speakeasy-sdk/csharp 0.7.0 2.277.0 5.0 accounts";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private Func<Security>? _securitySource;
@@ -75,16 +75,15 @@ namespace Accounts
         }
         
 
-        public async Task<AccountDetailsUsingGETResponse> AccountDetailsUsingGETAsync(AccountDetailsUsingGETRequest? request = null)
+        public async Task<AccountDetailsUsingGETResponse> AccountDetailsUsingGETAsync(AccountDetailsUsingGETRequest request)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/v5/accounts/{id}", request);
-            
+
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
             HeaderSerializer.PopulateHeaders(ref httpRequest, request);
-            
-            
+
             var client = _defaultClient;
             if (_securitySource != null)
             {
@@ -94,14 +93,14 @@ namespace Accounts
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            
+
             var response = new AccountDetailsUsingGETResponse
             {
                 StatusCode = (int)httpResponse.StatusCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
-            
+
             if((response.StatusCode == 200))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -111,6 +110,7 @@ namespace Accounts
 
                 return response;
             }
+
             if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 403) || (response.StatusCode == 404))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -125,16 +125,16 @@ namespace Accounts
 
         
 
-        public async Task<AccountListUsingGETResponse> AccountListUsingGETAsync(AccountListUsingGETRequest? request = null)
+        public async Task<AccountListUsingGETResponse> AccountListUsingGETAsync(AccountListUsingGETRequest request)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
+
             var urlString = baseUrl + "/v5/accounts";
-            
+
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
             HeaderSerializer.PopulateHeaders(ref httpRequest, request);
-            
-            
+
             var client = _defaultClient;
             if (_securitySource != null)
             {
@@ -144,14 +144,14 @@ namespace Accounts
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            
+
             var response = new AccountListUsingGETResponse
             {
                 StatusCode = (int)httpResponse.StatusCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
-            
+
             if((response.StatusCode == 200))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -161,6 +161,7 @@ namespace Accounts
 
                 return response;
             }
+
             if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 403) || (response.StatusCode == 404))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -175,16 +176,15 @@ namespace Accounts
 
         
 
-        public async Task<ConvertV4AccountIdToV5UsingGETResponse> ConvertV4AccountIdToV5UsingGETAsync(ConvertV4AccountIdToV5UsingGETRequest? request = null)
+        public async Task<ConvertV4AccountIdToV5UsingGETResponse> ConvertV4AccountIdToV5UsingGETAsync(ConvertV4AccountIdToV5UsingGETRequest request)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/v5/accounts/id-v4-to-v5/{id}", request);
-            
+
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
             HeaderSerializer.PopulateHeaders(ref httpRequest, request);
-            
-            
+
             var client = _defaultClient;
             if (_securitySource != null)
             {
@@ -194,14 +194,14 @@ namespace Accounts
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            
+
             var response = new ConvertV4AccountIdToV5UsingGETResponse
             {
                 StatusCode = (int)httpResponse.StatusCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
-            
+
             if((response.StatusCode == 200))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -211,6 +211,7 @@ namespace Accounts
 
                 return response;
             }
+
             if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 403) || (response.StatusCode == 404))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -225,16 +226,15 @@ namespace Accounts
 
         
 
-        public async Task<ConvertV5AccountIdToV4UsingGETResponse> ConvertV5AccountIdToV4UsingGETAsync(ConvertV5AccountIdToV4UsingGETRequest? request = null)
+        public async Task<ConvertV5AccountIdToV4UsingGETResponse> ConvertV5AccountIdToV4UsingGETAsync(ConvertV5AccountIdToV4UsingGETRequest request)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/v5/accounts/id-v5-to-v4/{id}", request);
-            
+
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
             HeaderSerializer.PopulateHeaders(ref httpRequest, request);
-            
-            
+
             var client = _defaultClient;
             if (_securitySource != null)
             {
@@ -244,14 +244,14 @@ namespace Accounts
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            
+
             var response = new ConvertV5AccountIdToV4UsingGETResponse
             {
                 StatusCode = (int)httpResponse.StatusCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
-            
+
             if((response.StatusCode == 200))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -261,6 +261,7 @@ namespace Accounts
 
                 return response;
             }
+
             if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 403) || (response.StatusCode == 404))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -275,16 +276,15 @@ namespace Accounts
 
         
 
-        public async Task<TransactionListUsingGETResponse> TransactionListUsingGETAsync(TransactionListUsingGETRequest? request = null)
+        public async Task<TransactionListUsingGETResponse> TransactionListUsingGETAsync(TransactionListUsingGETRequest request)
         {
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/v5/accounts/{id}/transactions", request);
-            
+
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
             HeaderSerializer.PopulateHeaders(ref httpRequest, request);
-            
-            
+
             var client = _defaultClient;
             if (_securitySource != null)
             {
@@ -294,14 +294,14 @@ namespace Accounts
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            
+
             var response = new TransactionListUsingGETResponse
             {
                 StatusCode = (int)httpResponse.StatusCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
-            
+
             if((response.StatusCode == 200))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -311,6 +311,7 @@ namespace Accounts
 
                 return response;
             }
+
             if((response.StatusCode == 400) || (response.StatusCode == 401) || (response.StatusCode == 403) || (response.StatusCode == 404))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
