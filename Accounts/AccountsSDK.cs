@@ -18,8 +18,6 @@ namespace Accounts
     using System.Threading.Tasks;
     using System;
 
-
-
     /// <summary>
     /// Accounts API: Nordea Account Information Services API v5
     /// </summary>
@@ -31,14 +29,16 @@ namespace Accounts
         /// </summary>
         public ICustomerAccounts CustomerAccounts { get; }
     }
-    
+
     public class SDKConfig
     {
-        public static string[] ServerList = new string[]
-        {
+        /// <summary>
+        /// List of server URLs available to the SDK.
+        /// </summary>
+        public static readonly string[] ServerList = {
             "https:////api.nordeaopenbanking.com/personal/",
         };
-        /// Contains the list of servers available to the SDK
+
         public string serverUrl = "";
         public int serverIndex = 0;
 
@@ -60,10 +60,10 @@ namespace Accounts
         public SDKConfig SDKConfiguration { get; private set; }
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.6.2";
-        private const string _sdkGenVersion = "2.262.2";
+        private const string _sdkVersion = "0.7.0";
+        private const string _sdkGenVersion = "2.279.1";
         private const string _openapiDocVersion = "5.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 0.6.2 2.262.2 5.0 accounts";
+        private const string _userAgent = "speakeasy-sdk/csharp 0.7.0 2.279.1 5.0 accounts";
         private string _serverUrl = "";
         private int _serverIndex = 0;
         private ISpeakeasyHttpClient _defaultClient;
@@ -74,6 +74,10 @@ namespace Accounts
         {
             if (serverIndex != null)
             {
+                if (serverIndex.Value < 0 || serverIndex.Value >= SDKConfig.ServerList.Length)
+                {
+                    throw new Exception($"Invalid server index {serverIndex.Value}");
+                }
                 _serverIndex = serverIndex.Value;
             }
 
