@@ -10,6 +10,7 @@
 #nullable enable
 namespace Accounts.Models.Shared
 {
+    using Accounts.Models.Shared;
     using Newtonsoft.Json;
     using System.Collections.Generic;
     

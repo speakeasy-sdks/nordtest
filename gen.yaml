@@ -11,7 +11,7 @@ generation:
     oAuth2ClientCredentialsEnabled: false
   baseServerURL: ""
 csharp:
-  version: 0.7.0
+  version: 0.7.1
   author: fsdf
   dotnetVersion: net5.0
   flattenGlobalSecurity: false

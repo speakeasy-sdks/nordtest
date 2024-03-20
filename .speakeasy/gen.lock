@@ -3,17 +3,17 @@ id: b4c3dd71-8620-4517-bfe8-b654740a3b87
 management:
   docChecksum: 8f103990e3594ae85022ff254c8b817a
   docVersion: "5.0"
-  speakeasyVersion: 1.205.2
-  generationVersion: 2.279.1
-  releaseVersion: 0.7.0
-  configChecksum: 3c6242afc79cb5f565672c6285603df8
+  speakeasyVersion: 1.213.0
+  generationVersion: 2.283.1
+  releaseVersion: 0.7.1
+  configChecksum: c16835bc91720a4816ba87c9768c47b4
   repoURL: https://github.com/speakeasy-sdks/nordtest.git
   repoSubDirectory: .
   published: true
 features:
   csharp:
     core: 3.4.3
-    globalSecurity: 2.83.3
+    globalSecurity: 2.83.4
     globalServerURLs: 2.82.3
 generatedFiles:
   - Accounts/CustomerAccounts.cs
