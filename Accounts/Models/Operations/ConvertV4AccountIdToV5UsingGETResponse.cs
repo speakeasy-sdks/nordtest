@@ -23,11 +23,6 @@ namespace Accounts.Models.Operations
         public string? ContentType { get; set; } = default!;
 
         /// <summary>
-        /// Bad Request
-        /// </summary>
-        public ErrorResponse? ErrorResponse { get; set; }
-
-        /// <summary>
         /// OK
         /// </summary>
         public IdV4toV5Response? IdV4toV5Response { get; set; }

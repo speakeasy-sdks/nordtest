@@ -8,15 +8,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace Accounts.Models.Shared
+namespace Accounts.Models.Errors
 {
     using Accounts.Models.Shared;
     using Newtonsoft.Json;
+    using System;
     
     /// <summary>
     /// Error response
     /// </summary>
-    public class ErrorResponse
+    public class ErrorResponse : Exception
     {
 
         /// <summary>

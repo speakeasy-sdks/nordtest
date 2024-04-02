@@ -60,8 +60,6 @@ var res = await sdk.CustomerAccounts.AccountDetailsUsingGETAsync(req);
 <!-- Start Server Selection [server] -->
 ## Server Selection
 
-## Server Selection
-
 ### Select Server by Index
 
 You can override the default server globally by passing a server index to the `serverIndex: number` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
@@ -114,6 +112,58 @@ var res = await sdk.CustomerAccounts.AccountDetailsUsingGETAsync(req);
 // handle response
 ```
 <!-- End Authentication [security] -->
+
+<!-- Start Error Handling [errors] -->
+## Error Handling
+
+Handling errors in this SDK should largely match your expectations.  All operations return a response object or thow an exception.  If Error objects are specified in your OpenAPI Spec, the SDK will raise the appropriate type.
+
+| Error Object                         | Status Code                          | Content Type                         |
+| ------------------------------------ | ------------------------------------ | ------------------------------------ |
+| Accounts.Models.Errors.ErrorResponse | 400,401,403,404                      | application/json                     |
+| Accounts.Models.Errors.SDKException  | 4xx-5xx                              | */*                                  |
+
+### Example
+
+```csharp
+using Accounts;
+using Accounts.Models.Shared;
+using System;
+using Accounts.Models.Errors;
+using Accounts.Models.Operations;
+
+var sdk = new AccountsSDK(security: new Security() {
+        DecoupledAuth = "Bearer <YOUR_ACCESS_TOKEN_HERE>",
+    });
+
+AccountDetailsUsingGETRequest req = new AccountDetailsUsingGETRequest() {
+    Signature = "<value>",
+    XIBMClientId = "<value>",
+    XIBMClientSecret = "<value>",
+    XNordeaOriginatingDate = "<value>",
+    XNordeaOriginatingHost = "<value>",
+    Id = "<id>",
+};
+
+try
+{
+    var res = await sdk.CustomerAccounts.AccountDetailsUsingGETAsync(req);
+    // handle response
+}
+catch (Exception ex)
+{
+    if (ex is ErrorResponse)
+    {
+        // handle exception
+    }
+    else if (ex is Accounts.Models.Errors.SDKException)
+    {
+        // handle exception
+    }
+}
+
+```
+<!-- End Error Handling [errors] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 

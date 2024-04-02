@@ -10,6 +10,7 @@
 #nullable enable
 namespace Accounts
 {
+    using Accounts.Models.Errors;
     using Accounts.Models.Shared;
     using Accounts.Utils;
     using Newtonsoft.Json;
@@ -60,10 +61,10 @@ namespace Accounts
         public SDKConfig SDKConfiguration { get; private set; }
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.8.0";
-        private const string _sdkGenVersion = "2.292.0";
+        private const string _sdkVersion = "0.9.0";
+        private const string _sdkGenVersion = "2.295.1";
         private const string _openapiDocVersion = "5.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 0.8.0 2.292.0 5.0 Accounts";
+        private const string _userAgent = "speakeasy-sdk/csharp 0.9.0 2.295.1 5.0 Accounts";
         private string _serverUrl = "";
         private int _serverIndex = 0;
         private ISpeakeasyHttpClient _defaultClient;

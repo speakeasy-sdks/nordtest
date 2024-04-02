@@ -52,7 +52,12 @@ var res = await sdk.CustomerAccounts.AccountDetailsUsingGETAsync(req);
 ### Response
 
 **[AccountDetailsUsingGETResponse](../../Models/Operations/AccountDetailsUsingGETResponse.md)**
+### Errors
 
+| Error Object                         | Status Code                          | Content Type                         |
+| ------------------------------------ | ------------------------------------ | ------------------------------------ |
+| Accounts.Models.Errors.ErrorResponse | 400,401,403,404                      | application/json                     |
+| Accounts.Models.Errors.SDKException  | 4xx-5xx                              | */*                                  |
 
 ## AccountListUsingGET
 
@@ -92,7 +97,12 @@ var res = await sdk.CustomerAccounts.AccountListUsingGETAsync(req);
 ### Response
 
 **[AccountListUsingGETResponse](../../Models/Operations/AccountListUsingGETResponse.md)**
+### Errors
 
+| Error Object                         | Status Code                          | Content Type                         |
+| ------------------------------------ | ------------------------------------ | ------------------------------------ |
+| Accounts.Models.Errors.ErrorResponse | 400,401,403,404                      | application/json                     |
+| Accounts.Models.Errors.SDKException  | 4xx-5xx                              | */*                                  |
 
 ## ConvertV4AccountIdToV5UsingGET
 
@@ -133,7 +143,12 @@ var res = await sdk.CustomerAccounts.ConvertV4AccountIdToV5UsingGETAsync(req);
 ### Response
 
 **[ConvertV4AccountIdToV5UsingGETResponse](../../Models/Operations/ConvertV4AccountIdToV5UsingGETResponse.md)**
+### Errors
 
+| Error Object                         | Status Code                          | Content Type                         |
+| ------------------------------------ | ------------------------------------ | ------------------------------------ |
+| Accounts.Models.Errors.ErrorResponse | 400,401,403,404                      | application/json                     |
+| Accounts.Models.Errors.SDKException  | 4xx-5xx                              | */*                                  |
 
 ## ConvertV5AccountIdToV4UsingGET
 
@@ -174,7 +189,12 @@ var res = await sdk.CustomerAccounts.ConvertV5AccountIdToV4UsingGETAsync(req);
 ### Response
 
 **[ConvertV5AccountIdToV4UsingGETResponse](../../Models/Operations/ConvertV5AccountIdToV4UsingGETResponse.md)**
+### Errors
 
+| Error Object                         | Status Code                          | Content Type                         |
+| ------------------------------------ | ------------------------------------ | ------------------------------------ |
+| Accounts.Models.Errors.ErrorResponse | 400,401,403,404                      | application/json                     |
+| Accounts.Models.Errors.SDKException  | 4xx-5xx                              | */*                                  |
 
 ## TransactionListUsingGET
 
@@ -216,4 +236,9 @@ var res = await sdk.CustomerAccounts.TransactionListUsingGETAsync(req);
 ### Response
 
 **[TransactionListUsingGETResponse](../../Models/Operations/TransactionListUsingGETResponse.md)**
+### Errors
 
+| Error Object                         | Status Code                          | Content Type                         |
+| ------------------------------------ | ------------------------------------ | ------------------------------------ |
+| Accounts.Models.Errors.ErrorResponse | 400,401,403,404                      | application/json                     |
+| Accounts.Models.Errors.SDKException  | 4xx-5xx                              | */*                                  |

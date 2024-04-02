@@ -3,16 +3,16 @@ id: b4c3dd71-8620-4517-bfe8-b654740a3b87
 management:
   docChecksum: 8f103990e3594ae85022ff254c8b817a
   docVersion: "5.0"
-  speakeasyVersion: 1.228.1
-  generationVersion: 2.292.0
-  releaseVersion: 0.8.0
-  configChecksum: 05abac9a126a653236e1e26d53759a79
+  speakeasyVersion: 1.231.1
+  generationVersion: 2.295.1
+  releaseVersion: 0.9.0
+  configChecksum: a335d59d628c57ce84b01da02fbd4873
   repoURL: https://github.com/speakeasy-sdks/nordtest.git
   repoSubDirectory: .
   published: true
 features:
   csharp:
-    core: 3.5.0
+    core: 3.6.0
     globalSecurity: 2.83.4
     globalServerURLs: 2.82.3
 generatedFiles:
@@ -28,12 +28,14 @@ generatedFiles:
   - Accounts/Utils/HeaderSerializer.cs
   - Accounts/Utils/IsoDateTimeSerializer.cs
   - Accounts/Utils/RequestBodySerializer.cs
+  - Accounts/Utils/ResponseBodyDeserializer.cs
   - Accounts/Utils/SecuritySerializer.cs
   - Accounts/Utils/SpeakeasyHttpClient.cs
   - Accounts/Utils/SpeakeasyMetadata.cs
   - Accounts/Utils/URLBuilder.cs
   - Accounts/Utils/Utilities.cs
   - Accounts/Accounts.csproj
+  - Accounts/Models/Errors/SDKException.cs
   - Accounts/Models/Operations/AccountDetailsUsingGETRequest.cs
   - Accounts/Models/Operations/AccountDetailsUsingGETResponse.cs
   - Accounts/Models/Operations/AccountListUsingGETRequest.cs
@@ -44,12 +46,6 @@ generatedFiles:
   - Accounts/Models/Operations/ConvertV5AccountIdToV4UsingGETResponse.cs
   - Accounts/Models/Operations/TransactionListUsingGETRequest.cs
   - Accounts/Models/Operations/TransactionListUsingGETResponse.cs
-  - Accounts/Models/Shared/ErrorResponse.cs
-  - Accounts/Models/Shared/ResponseHeader.cs
-  - Accounts/Models/Shared/Pagination.cs
-  - Accounts/Models/Shared/ErrorPayload.cs
-  - Accounts/Models/Shared/RequestEcho.cs
-  - Accounts/Models/Shared/Failure.cs
   - Accounts/Models/Shared/AccountDetailsResponse.cs
   - Accounts/Models/Shared/AccountType.cs
   - Accounts/Models/Shared/Country.cs
@@ -61,6 +57,11 @@ generatedFiles:
   - Accounts/Models/Shared/Type.cs
   - Accounts/Models/Shared/AccountNumber.cs
   - Accounts/Models/Shared/Link.cs
+  - Accounts/Models/Shared/ResponseHeader.cs
+  - Accounts/Models/Shared/Pagination.cs
+  - Accounts/Models/Shared/ErrorPayload.cs
+  - Accounts/Models/Shared/RequestEcho.cs
+  - Accounts/Models/Shared/Failure.cs
   - Accounts/Models/Shared/AccountListResponse.cs
   - Accounts/Models/Shared/AccountList.cs
   - Accounts/Models/Shared/IdV4toV5Response.cs
@@ -72,6 +73,7 @@ generatedFiles:
   - Accounts/Models/Shared/TransactionStatus.cs
   - Accounts/Models/Shared/Transaction.cs
   - Accounts/Models/Shared/Security.cs
+  - Accounts/Models/Errors/ErrorResponse.cs
   - docs/Models/Operations/AccountDetailsUsingGETRequest.md
   - docs/Models/Operations/AccountDetailsUsingGETResponse.md
   - docs/Models/Operations/AccountListUsingGETRequest.md
@@ -82,12 +84,6 @@ generatedFiles:
   - docs/Models/Operations/ConvertV5AccountIdToV4UsingGETResponse.md
   - docs/Models/Operations/TransactionListUsingGETRequest.md
   - docs/Models/Operations/TransactionListUsingGETResponse.md
-  - docs/Models/Shared/ErrorResponse.md
-  - docs/Models/Shared/ResponseHeader.md
-  - docs/Models/Shared/Pagination.md
-  - docs/Models/Shared/ErrorPayload.md
-  - docs/Models/Shared/RequestEcho.md
-  - docs/Models/Shared/Failure.md
   - docs/Models/Shared/AccountDetailsResponse.md
   - docs/Models/Shared/AccountType.md
   - docs/Models/Shared/Country.md
@@ -99,6 +95,11 @@ generatedFiles:
   - docs/Models/Shared/Type.md
   - docs/Models/Shared/AccountNumber.md
   - docs/Models/Shared/Link.md
+  - docs/Models/Shared/ResponseHeader.md
+  - docs/Models/Shared/Pagination.md
+  - docs/Models/Shared/ErrorPayload.md
+  - docs/Models/Shared/RequestEcho.md
+  - docs/Models/Shared/Failure.md
   - docs/Models/Shared/AccountListResponse.md
   - docs/Models/Shared/AccountList.md
   - docs/Models/Shared/IdV4toV5Response.md
@@ -110,6 +111,7 @@ generatedFiles:
   - docs/Models/Shared/TransactionStatus.md
   - docs/Models/Shared/Transaction.md
   - docs/Models/Shared/Security.md
+  - docs/Models/Errors/ErrorResponse.md
   - docs/sdks/accounts/README.md
   - docs/sdks/customeraccounts/README.md
   - USAGE.md
